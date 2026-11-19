@@ -1,0 +1,30 @@
+FoodBridge Diagram Validation Against schema_3nf.sql
+Project: Food Waste Redistribution and Resource Allocation System
+Sruthi Vejju / PES1UG24CS472
+Shubashitha Gowtham / PES1UG24CS450
+
+Entities = 6; Attributes = 54; PKs = 6; FKs = 6
+organizations: 8 columns; PK=org_id
+  org_id, org_name, org_type, address, contact_person, contact_phone, verification_status, created_at
+users: 7 columns; PK=user_id
+  user_id, org_id, full_name, email, password_hash, last_login_at, created_at
+donations: 13 columns; PK=donation_id
+  donation_id, donor_org_id, food_name, description, category, total_qty, unit, prepared_at, expires_at, pickup_address, status, created_at, embedding
+ngo_requests: 12 columns; PK=request_id
+  request_id, ngo_org_id, description, category, requested_qty, unit, needed_by, delivery_address, priority, status, created_at, embedding
+allocations: 7 columns; PK=allocation_id
+  allocation_id, donation_id, request_id, allocated_qty, match_score, status, allocated_at
+pickups: 7 columns; PK=pickup_id
+  pickup_id, allocation_id, scheduled_at, collected_by, vehicle_no, delivery_status, completed_at
+
+Foreign keys:
+ users.org_id -> organizations.org_id
+ donations.donor_org_id -> organizations.org_id
+ ngo_requests.ngo_org_id -> organizations.org_id
+ allocations.donation_id -> donations.donation_id
+ allocations.request_id -> ngo_requests.request_id
+ pickups.allocation_id -> allocations.allocation_id
+
+Cardinality: one allocation can have zero or one pickup; each pickup belongs to exactly one allocation due to UNIQUE and NOT NULL FK.
+3NF basis: organization type is stored only in organizations; app role is derived by JOIN. Remaining normal-form assumptions depend on real-world functional dependencies.
+MongoDB flexible collections are separate from relational diagrams.

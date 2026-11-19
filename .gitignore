@@ -39,3 +39,9 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Never upload database backups
+*.dump
+
+# Allow the safe environment template
+!.env.example

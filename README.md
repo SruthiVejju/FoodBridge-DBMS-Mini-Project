@@ -1,36 +1,49 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+﻿# FoodBridge
+## Food Waste Redistribution and Resource Allocation System
 
-## Getting Started
+**DBMS Mini Project**
 
-First, run the development server:
+### Team Members
+- Sruthi Vejju - PES1UG24CS472
+- Shubashitha Gowtham - PES1UG24CS450
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### Project Overview
+FoodBridge connects food donors with NGOs to help redistribute surplus food. Donors publish available food, NGOs request food, and the system manages allocations, pickups, and delivery confirmation.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Technologies
+- Next.js, TypeScript
+- PostgreSQL with pgvector
+- MongoDB
+- Machine learning-based semantic matching
+- Docker
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Features
+- Donor and NGO registration and login
+- Food donation and NGO request management
+- Semantic matching using text embeddings
+- Food allocation and pickup tracking
+- NGO delivery confirmation
+- MongoDB activity and food-condition records
+- Advanced SQL features and transaction testing
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Database
+The final database follows Third Normal Form (3NF).
 
-## Learn More
+- 6 PostgreSQL tables
+- 54 attributes
+- 6 primary keys
+- 6 foreign keys
 
-To learn more about Next.js, take a look at the following resources:
+Database scripts are in `database/`.
+ER and relational schema diagrams are in `diagrams/`.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Running the Application
+1. Install Node.js and Docker Desktop.
+2. Start PostgreSQL and MongoDB using the project's database configuration.
+3. Run `npm install`.
+4. Configure `.env.local` using the project's environment settings.
+5. Run `npm run dev`.
+6. Open http://localhost:3000.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Testing
+Database test scripts and concurrency test code are included in the repository.
