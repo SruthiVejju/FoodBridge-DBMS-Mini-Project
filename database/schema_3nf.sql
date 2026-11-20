@@ -11,7 +11,7 @@ CREATE EXTENSION IF NOT EXISTS vector;
 CREATE TABLE organizations (
     org_id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     org_name VARCHAR(150) NOT NULL,
-    org_type VARCHAR(10) NOT NULL CHECK (org_type IN ('DONOR','NGO')),
+    org_type VARCHAR(10) NOT NULL CHECK (org_type IN ('DONOR','NGO','ADMIN')),
     address TEXT NOT NULL,
     contact_person VARCHAR(120) NOT NULL,
     contact_phone VARCHAR(20) NOT NULL,

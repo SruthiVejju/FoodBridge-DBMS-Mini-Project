@@ -8,6 +8,7 @@ import LogoutButton from "@/components/LogoutButton";
 async function DashboardContent() {
   const user = await getCurrentUser();
   if (!user) redirect("/login");
+  if (user.role === "ADMIN") redirect("/admin");
   const donor = user.role === "DONOR";
   const summary = donor
     ? await db.query<{ total: string; open: string }>(

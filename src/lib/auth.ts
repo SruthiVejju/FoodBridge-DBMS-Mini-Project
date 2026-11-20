@@ -2,7 +2,7 @@ import { cookies } from "next/headers";
 import { SignJWT, jwtVerify } from "jose";
 import { db } from "@/lib/db";
 
-export type UserRole = "DONOR" | "NGO";
+export type UserRole = "DONOR" | "NGO" | "ADMIN";
 export type CurrentUser = {
   userId: string;
   orgId: string;
